@@ -15,7 +15,6 @@ RSpec.describe Card do
 
   it 'has an answer' do
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-
     expect(card.answer).to eq("Juneau")
   end
 
