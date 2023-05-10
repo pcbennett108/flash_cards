@@ -10,6 +10,10 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 
 cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
+round = Round.new(deck)
+turn_1 = round.take_turn("Juneau")
+turn_2 = round.take_turn("Venus")
+
 
 require "pry" ; binding.pry
 
