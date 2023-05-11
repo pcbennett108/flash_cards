@@ -12,6 +12,7 @@ card_4 = Card.new("What is the highest mountain in North America?", "Denali", :G
 cards = [card_1, card_2, card_3, card_4]
 deck = Deck.new(cards)
 round = Round.new(deck)
+round.start
 # turn_1 = round.take_turn("Juneau")
 # turn_2 = round.take_turn("Venus")
 
@@ -19,22 +20,6 @@ round = Round.new(deck)
 #require "pry" ; binding.pry
 
 
-tries = 0
-puts "Welcome! You're playing with 4 cards."
-puts "-------------------------------------------------"
 
-while tries < deck.count
-  puts "This is card number #{round.card_count + 1} out of #{deck.count}."
-  puts "Question: #{round.current_card.question}"
-  guess = gets.chomp
-  turn = round.take_turn(guess)
-  #? why would it not work without the var assignment - wrong num of args
-  p turn.feedback
-  puts ""
-  tries += 1
-end
 
-puts "****** Game over! ******"
-puts "You had #{round.number_correct} correct guesses out of #{deck.count} for a total score of #{round.percent_correct}%"
-puts "STEM - #{round.percent_correct_by_category(:STEM)}% correct"
-puts "Geography - #{round.percent_correct_by_category(:Geography)}% correct"
+#? START method?

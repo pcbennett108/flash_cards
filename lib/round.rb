@@ -42,6 +42,29 @@ class Round
       number_correct_by_category(category).to_f / category_total.length.to_f * 100
     end
 
+    def start
+      tries = 0
+      puts "Welcome! You're playing with 4 cards."
+      puts "-------------------------------------------------"
+
+      while tries < deck.count
+        puts "This is card number #{card_count + 1} out of #{deck.count}."
+        puts "Question: #{current_card.question}"
+        guess = gets.chomp
+        turn = take_turn(guess)
+        #? why would it not work without the var assignment - wrong num of args
+        p turn.feedback
+        puts ""
+        tries += 1
+      end
+
+      puts "****** Game over! ******"
+      puts "You had #{number_correct} correct guesses out of #{deck.count} for a total score of #{percent_correct}%"
+      puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
+      puts "Geography - #{percent_correct_by_category(:Geography)}% correct"
+    end
+
+
 end
 #? suggestions for cleaning up block @ 27
 #?  Why pry is not working here even with require at top
